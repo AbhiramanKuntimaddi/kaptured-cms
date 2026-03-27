@@ -2,6 +2,19 @@ export default [
 	"strapi::logger",
 	"strapi::errors",
 	{
+		name: "strapi::cors",
+		config: {
+			origin: [
+				"http://localhost:3000",
+				"https://kaptured.vercel.app",
+				"https://light-captain-34c8474c20.strapiapp.com",
+			],
+			methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+			headers: ["Content-Type", "Authorization", "Origin", "Accept"],
+			keepHeaderOnError: true,
+		},
+	},
+	{
 		name: "strapi::security",
 		config: {
 			contentSecurityPolicy: {
@@ -25,15 +38,6 @@ export default [
 					upgradeInsecureRequests: null,
 				},
 			},
-		},
-	},
-	{
-		name: "strapi::cors",
-		config: {
-			origin: ["http://localhost:3000", "https://kaptured.vercel.app"],
-			methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
-			headers: ["Content-Type", "Authorization", "Origin", "Accept"],
-			keepHeaderOnError: true,
 		},
 	},
 	"strapi::poweredBy",
