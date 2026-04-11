@@ -1,6 +1,4 @@
 export default [
-	"strapi::logger",
-	"strapi::errors",
 	{
 		name: "strapi::cors",
 		config: {
@@ -40,6 +38,8 @@ export default [
 			},
 		},
 	},
+	"strapi::errors",
+	"strapi::logger",
 	"strapi::poweredBy",
 	"strapi::query",
 	"strapi::body",
